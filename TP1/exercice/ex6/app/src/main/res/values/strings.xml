@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">ex6</string>
+    <!-- label -->
+    <string name="label_nom">Name</string>
+    <string name="label_prenom">First name</string>
+    <string name="label_age">Age</string>
+    <string name="label_domainecomp">Field of expertise</string>
+    <string name="label_num">Phone number</string>
+
+    <!-- hint -->
+    <string name="hint_nom">Insert your name</string>
+    <string name="hint_prenom">Insert your first name</string>
+    <string name="hint_age">Insert your age</string>
+    <string name="hint_domainecomp">Insert your field of expertise</string>
+    <string name="hint_num">Insert your phone number</string>
+
+    <!-- dialog -->
+    <string name="dialog_title">Confirmation</string>
+    <string name="dialog_message">Do you want to validate the entered information?</string>
+
+    <!-- btn -->
+    <string name="btn_valider">Validate</string>
+    <string name="btn_confirmer">Confirm</string>
+    <string name="btn_annuler">Cancel</string>
+    <string name="btn_ok">Ok</string>
+    <string name="btn_retour">Return</string>
+
+    <!-- affichage -->
+    <string name="recap_text">
+        Name : %1$s\n
+        First name : %2$s\n
+        Age : %3$s\n
+        Field of expertise : %4$s\n
+        Phone number : %5$s
+    </string>
+</resources>

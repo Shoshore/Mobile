@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ex8</string>
+    <string name="label_ville_dep">Ville de départ</string>
+    <string name="label_ville_arr">Ville d\'arrivé</string>
+
+    <string name="btn_rech_train">Rechercher les trains</string>
+    <string name="list_horaire_dep">Horaires disponibles</string>
+
+    <string name="hint_city_dep">Ex : Paris</string>
+    <string name="hint_city_arr">Ex : Lyon</string>
+</resources>

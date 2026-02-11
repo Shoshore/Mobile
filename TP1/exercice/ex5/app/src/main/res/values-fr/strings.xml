@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">ex5</string>
+    <!-- label -->
+    <string name="label_nom">Nom</string>
+    <string name="label_prenom">Prénom</string>
+    <string name="label_age">Age</string>
+    <string name="label_domainecomp">Domaine de compétences</string>
+    <string name="label_num">Numéro de téléphone</string>
+
+    <!-- hint -->
+    <string name="hint_nom">Entrez votre nom</string>
+    <string name="hint_prenom">Entrez votre prénom</string>
+    <string name="hint_age">Entrez votre âge</string>
+    <string name="hint_domainecomp">Entrez votre domaine de compétences</string>
+    <string name="hint_num">Entrez votre numéro de téléphone</string>
+
+    <!-- dialog -->
+    <string name="dialog_title">Confirmation</string>
+    <string name="dialog_message">Voulez-vous valider les informations saisies ?</string>
+
+    <!-- btn -->
+    <string name="btn_valider">Valider</string>
+    <string name="btn_confirmer">Confirmer</string>
+    <string name="btn_annuler">Annuler</string>
+
+
+</resources>

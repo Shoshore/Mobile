@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="tvDepart" type="id"/>
+    <item name="etDepart" type="id"/>
+    <item name="tvArrivee" type="id"/>
+    <item name="etArrivee" type="id"/>
+    <item name="btnRechercher" type="id"/>
+    <item name="tvHoraires" type="id"/>
+    <item name="listHoraires" type="id"/>
+</resources>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ex9</string>
+    <string name="title_agenda">My Agenda</string>
+    <string name="label_date">Date: 01/01/2026</string>
+    <string name="hint_evenement">Add an event</string>
+    <string name="btn_ajouter">Add</string>
+    <string name="label_evenements">Events:</string>
+</resources>
