@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">ex9</string>
-    <string name="title_agenda">Mon Agenda</string>
-    <string name="label_date">Date : 01/01/2026</string>
-    <string name="hint_evenement">Ajouter un événement</string>
-    <string name="btn_ajouter">Ajouter</string>
-    <string name="label_evenements">Événements :</string>
-</resources>
