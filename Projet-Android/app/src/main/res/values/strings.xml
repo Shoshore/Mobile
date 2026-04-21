@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Traveling</string>
+    <!-- Bottom Navigation -->
+    <string name="nav_home">Accueil</string>
+    <string name="nav_search">Recherche</string>
+    <string name="nav_publish">Publier</string>
+    <string name="nav_travelpath">Parcours</string>
+    <string name="nav_profile">Profil</string>
+
+    <!-- Home / Discover -->
+    <string name="hint_search">Rechercher ou voix...</string>
+    <string name="filter_nature">Nature</string>
+    <string name="filter_ville">Ville</string>
+    <string name="filter_food">Restauration</string>
+    <string name="filter_culture">Culture</string>
+
+    <!-- Photo Detail -->
+    <string name="location">📍 Lieu : Paris</string>
+    <string name="date">🗓️ Date : Juin 2025</string>
+    <string name="description_photo">Belle vue de la Tour Eiffel.</string>
+    <string name="voir_itineraire">Voir itinéraire</string>
+
+    <!-- TravelPath Form -->
+    <string name="label_ville">Ville</string>
+    <string name="label_budget">Budget</string>
+    <string name="label_duree">Durée</string>
+    <string name="btn_generer_parcours">Générer parcours</string>
+
+    <!-- TravelPath Result -->
+    <string name="parcours_economique">Parcours économique</string>
+    <string name="parcours_confort">Parcours confort</string>
+    <string name="budget_duree_economique">Budget : 50€ - Durée : 5h</string>
+    <string name="budget_duree_confort">Budget : 80€ - Durée : 6h</string>
+    <string name="voir_details">Voir détails</string>
+
+    <!-- Profile -->
+    <string name="nom_utilisateur">Nom utilisateur : Jean Dupont</string>
+    <string name="mes_photos">Mes photos</string>
+    <string name="mes_parcours">Mes parcours</string>
+    <string name="parametres">Paramètres</string>
+</resources>

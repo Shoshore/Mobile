@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Avatar + Nom -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:text="👤"
+                android:textSize="32sp"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/tv_username"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:text="Mode anonyme"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingStart="12dp"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_login_logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Se connecter"
+            android:backgroundTint="#1A1A2E"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Section visible seulement si connecté -->
+        <LinearLayout
+            android:id="@+id/section_connected"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/btn_publish"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="📸 Publier une photo"
+                android:backgroundTint="#4CAF50"
+                android:layout_marginBottom="8dp"/>
+
+            <Button
+                android:id="@+id/btn_my_photos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🖼️ Mes photos"
+                android:backgroundTint="#2196F3"
+                android:layout_marginBottom="8dp"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="👥 Mes groupes"
+                android:backgroundTint="#9C27B0"
+                android:layout_marginBottom="8dp"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🔔 Notifications"
+                android:backgroundTint="#FF9800"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
