@@ -1,6 +1,5 @@
 package com.example.project_android;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,8 +13,6 @@ import androidx.fragment.app.Fragment;
 
 public class ProfileFragment extends Fragment {
 
-    private boolean isLoggedIn = false;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -23,33 +20,65 @@ public class ProfileFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        TextView tvUsername = view.findViewById(R.id.tv_username);
-        Button btnLoginLogout = view.findViewById(R.id.btn_login_logout);
-        View sectionConnected = view.findViewById(R.id.section_connected);
+        MainActivity activity   = (MainActivity) requireActivity();
+        TextView tvUsername     = view.findViewById(R.id.tv_username);
+        Button btnLoginLogout   = view.findViewById(R.id.btn_login_logout);
+        View sectionConnected   = view.findViewById(R.id.section_connected);
 
-        updateUI(tvUsername, btnLoginLogout, sectionConnected);
+        updateUI(activity, tvUsername, btnLoginLogout, sectionConnected);
 
         btnLoginLogout.setOnClickListener(v -> {
-            isLoggedIn = !isLoggedIn;
-            updateUI(tvUsername, btnLoginLogout, sectionConnected);
-            String msg = isLoggedIn ? "Connecté en tant que Jean Dupont" : "Déconnecté";
-            Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
+            if (activity.isLoggedIn()) {
+                activity.setLoggedIn(false);
+                activity.setLoggedUserName("");
+                updateUI(activity, tvUsername, btnLoginLogout, sectionConnected);
+                Toast.makeText(getContext(), "Deconnecte", Toast.LENGTH_SHORT).show();
+            } else {
+                requireActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, new LoginFragment())
+                        .addToBackStack(null)
+                        .commit();
+            }
         });
 
+        // Publier une photo
+        view.findViewById(R.id.btn_publish).setOnClickListener(v -> {
+            if (activity.isLoggedIn()) {
+                requireActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, new PublishPhotoFragment())
+                        .addToBackStack(null)
+                        .commit();
+            } else {
+                Toast.makeText(getContext(),
+                        "Connectez-vous pour publier", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Mes photos
         view.findViewById(R.id.btn_my_photos).setOnClickListener(v ->
-                Toast.makeText(getContext(), "Mes photos — à implémenter", Toast.LENGTH_SHORT).show()
+                Toast.makeText(getContext(),
+                        "Mes photos - a implementer", Toast.LENGTH_SHORT).show()
         );
-        view.findViewById(R.id.btn_publish).setOnClickListener(v ->
-                Toast.makeText(getContext(), "Publier une photo — à implémenter", Toast.LENGTH_SHORT).show()
+
+        // Notifications → NotificationSettingsFragment
+        view.findViewById(R.id.btn_notifications).setOnClickListener(v ->
+                requireActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, new NotificationSettingsFragment())
+                        .addToBackStack(null)
+                        .commit()
         );
 
         return view;
     }
 
-    private void updateUI(TextView tvUsername, Button btnLoginLogout, View sectionConnected) {
-        if (isLoggedIn) {
-            tvUsername.setText("Jean Dupont");
-            btnLoginLogout.setText("Se déconnecter");
+    private void updateUI(MainActivity activity, TextView tvUsername,
+                          Button btnLoginLogout, View sectionConnected) {
+        if (activity.isLoggedIn()) {
+            tvUsername.setText(activity.getLoggedUserName());
+            btnLoginLogout.setText("Se deconnecter");
             sectionConnected.setVisibility(View.VISIBLE);
         } else {
             tvUsername.setText("Mode anonyme");

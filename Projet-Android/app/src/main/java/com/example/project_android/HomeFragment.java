@@ -26,8 +26,33 @@ public class HomeFragment extends Fragment {
 
         List<PhotoModel> photos = getSamplePhotos();
         PhotoAdapter adapter = new PhotoAdapter(photos);
-        recyclerView.setAdapter(adapter);
 
+        // Passerelle photo → TravelPath
+        adapter.setOnPhotoActionListener(location -> {
+            String ville = location.contains(",")
+                    ? location.split(",")[0].trim() : location;
+            TravelPathFragment f = new TravelPathFragment();
+            Bundle args = new Bundle();
+            args.putString("ville_prefillee", ville);
+            f.setArguments(args);
+            requireActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, f)
+                    .addToBackStack(null)
+                    .commit();
+        });
+
+        // Clic photo → fiche detail
+        adapter.setOnPhotoClickListener(photo -> {
+            PhotoDetailFragment detail = PhotoDetailFragment.newInstance(photo);
+            requireActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, detail)
+                    .addToBackStack(null)
+                    .commit();
+        });
+
+        recyclerView.setAdapter(adapter);
         return view;
     }
 
@@ -37,9 +62,9 @@ public class HomeFragment extends Fragment {
                 "Avril 2024", android.R.drawable.ic_menu_gallery, 142));
         list.add(new PhotoModel("Plage de Bondi", "Tom R.", "Sydney, Australie",
                 "Janvier 2024", android.R.drawable.ic_menu_gallery, 98));
-        list.add(new PhotoModel("Marché de Marrakech", "Sophie M.", "Marrakech, Maroc",
+        list.add(new PhotoModel("Marche de Marrakech", "Sophie M.", "Marrakech, Maroc",
                 "Mars 2024", android.R.drawable.ic_menu_gallery, 76));
-        list.add(new PhotoModel("Forêt de Kyoto", "Kenji A.", "Kyoto, Japon",
+        list.add(new PhotoModel("Foret de Kyoto", "Kenji A.", "Kyoto, Japon",
                 "Novembre 2023", android.R.drawable.ic_menu_gallery, 215));
         return list;
     }

@@ -6,60 +6,132 @@
     android:layout_height="match_parent"
     android:background="#F5F5F5">
 
-    <EditText
-        android:id="@+id/et_search"
+    <!-- Barre recherche + micro -->
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="🔍 Rechercher lieu, auteur, thème..."
-        android:padding="12dp"
-        android:background="#FFFFFF"
-        android:layout_margin="8dp"/>
+        android:padding="8dp"
+        android:background="#FFFFFF">
 
-    <HorizontalScrollView
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Rechercher lieu, auteur, theme..."
+            android:padding="10dp"
+            android:background="#F0F0F0"
+            android:layout_marginEnd="8dp"/>
+
+        <ImageButton
+            android:id="@+id/btn_voice_search"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@android:drawable/ic_btn_speak_now"
+            android:background="#1A1A2E"
+            android:padding="10dp"
+            android:contentDescription="Recherche vocale"/>
+    </LinearLayout>
+
+    <!-- Filtres rapides + bouton avancé -->
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF">
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:padding="8dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+        <HorizontalScrollView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
-            <TextView android:id="@+id/filter_all"
-                android:text="Tous" android:padding="8dp"
-                android:background="#1A1A2E" android:textColor="#FFFFFF"
-                android:layout_marginEnd="6dp"
+            <LinearLayout
+                android:orientation="horizontal"
+                android:padding="8dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <TextView android:id="@+id/filter_nature"
-                android:text="Nature" android:padding="8dp"
-                android:background="#4CAF50" android:textColor="#FFFFFF"
-                android:layout_marginEnd="6dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <TextView android:id="@+id/filter_ville"
-                android:text="Ville" android:padding="8dp"
-                android:background="#2196F3" android:textColor="#FFFFFF"
-                android:layout_marginEnd="6dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <TextView android:id="@+id/filter_food"
-                android:text="Food" android:padding="8dp"
-                android:background="#FF9800" android:textColor="#FFFFFF"
-                android:layout_marginEnd="6dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <TextView android:id="@+id/filter_culture"
-                android:text="Culture" android:padding="8dp"
-                android:background="#9C27B0" android:textColor="#FFFFFF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-    </HorizontalScrollView>
+                android:layout_height="wrap_content">
 
+                <TextView
+                    android:id="@+id/filter_all"
+                    android:text="Tous"
+                    android:padding="8dp"
+                    android:background="#1A1A2E"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginEnd="6dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/filter_nature"
+                    android:text="Nature"
+                    android:padding="8dp"
+                    android:background="#4CAF50"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginEnd="6dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/filter_ville"
+                    android:text="Ville"
+                    android:padding="8dp"
+                    android:background="#2196F3"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginEnd="6dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/filter_food"
+                    android:text="Food"
+                    android:padding="8dp"
+                    android:background="#FF9800"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginEnd="6dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/filter_culture"
+                    android:text="Culture"
+                    android:padding="8dp"
+                    android:background="#9C27B0"
+                    android:textColor="#FFFFFF"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- Bouton filtres avancés -->
+        <ImageButton
+            android:id="@+id/btn_advanced_filter"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@android:drawable/ic_menu_sort_by_size"
+            android:background="#FF9800"
+            android:padding="10dp"
+            android:layout_margin="4dp"
+            android:contentDescription="Filtres avances"/>
+    </LinearLayout>
+
+    <!-- Badge filtres actifs -->
+    <TextView
+        android:id="@+id/tv_active_filters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="11sp"
+        android:textColor="#FFFFFF"
+        android:background="#FF9800"
+        android:padding="6dp"
+        android:visibility="gone"/>
+
+    <!-- Résultats -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_photos"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="4dp"/>
+
 </LinearLayout>

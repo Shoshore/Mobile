@@ -47,7 +47,7 @@
             android:backgroundTint="#1A1A2E"
             android:layout_marginBottom="16dp"/>
 
-        <!-- Section visible seulement si connecté -->
+        <!-- Section connecte -->
         <LinearLayout
             android:id="@+id/section_connected"
             android:orientation="vertical"
@@ -72,17 +72,19 @@
                 android:layout_marginBottom="8dp"/>
 
             <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="👥 Mes groupes"
-                android:backgroundTint="#9C27B0"
-                android:layout_marginBottom="8dp"/>
-
-            <Button
+                android:id="@+id/btn_notifications"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="🔔 Notifications"
-                android:backgroundTint="#FF9800"/>
+                android:backgroundTint="#FF9800"
+                android:layout_marginBottom="8dp"/>
+
+            <Button
+                android:id="@+id/btn_groupes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="👥 Mes groupes"
+                android:backgroundTint="#9C27B0"/>
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

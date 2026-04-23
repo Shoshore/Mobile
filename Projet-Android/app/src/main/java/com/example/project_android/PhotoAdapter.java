@@ -12,6 +12,24 @@ import java.util.List;
 
 public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHolder> {
 
+    // Listener passerelle TravelPath
+    public interface OnPhotoActionListener {
+        void onCreateParcours(String location);
+    }
+    private OnPhotoActionListener actionListener;
+    public void setOnPhotoActionListener(OnPhotoActionListener l) {
+        this.actionListener = l;
+    }
+
+    // Listener clic fiche detail
+    public interface OnPhotoClickListener {
+        void onPhotoClick(PhotoModel photo);
+    }
+    private OnPhotoClickListener clickListener;
+    public void setOnPhotoClickListener(OnPhotoClickListener l) {
+        this.clickListener = l;
+    }
+
     private List<PhotoModel> photoList;
 
     public PhotoAdapter(List<PhotoModel> photoList) {
@@ -29,6 +47,7 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHol
     @Override
     public void onBindViewHolder(@NonNull PhotoViewHolder holder, int position) {
         PhotoModel photo = photoList.get(position);
+
         holder.tvTitle.setText(photo.getTitle());
         holder.tvAuthor.setText("📷 " + photo.getAuthor());
         holder.tvLocation.setText("📍 " + photo.getLocation());
@@ -36,17 +55,33 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHol
         holder.tvLikes.setText(String.valueOf(photo.getLikes()));
         holder.ivPhoto.setImageResource(photo.getImageResId());
 
-        // Like button
+        // Like
+        holder.btnLike.setText(photo.isLikedByUser() ? "❤️" : "🤍");
         holder.btnLike.setOnClickListener(v -> {
             photo.toggleLike();
             holder.tvLikes.setText(String.valueOf(photo.getLikes()));
             holder.btnLike.setText(photo.isLikedByUser() ? "❤️" : "🤍");
         });
 
-        // Report button
+        // Signaler
         holder.btnReport.setOnClickListener(v ->
-                Toast.makeText(v.getContext(), "Photo signalée", Toast.LENGTH_SHORT).show()
+                Toast.makeText(v.getContext(), "Photo signalee", Toast.LENGTH_SHORT).show()
         );
+
+        // Passerelle TravelPath
+        holder.btnVersParcours.setOnClickListener(v -> {
+            if (actionListener != null) actionListener.onCreateParcours(photo.getLocation());
+        });
+
+        // Clic sur la photo → fiche detail
+        holder.ivPhoto.setOnClickListener(v -> {
+            if (clickListener != null) clickListener.onPhotoClick(photo);
+        });
+
+        // Clic sur le titre → fiche detail
+        holder.tvTitle.setOnClickListener(v -> {
+            if (clickListener != null) clickListener.onPhotoClick(photo);
+        });
     }
 
     @Override
@@ -55,18 +90,19 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHol
     static class PhotoViewHolder extends RecyclerView.ViewHolder {
         ImageView ivPhoto;
         TextView tvTitle, tvAuthor, tvLocation, tvDate, tvLikes;
-        TextView btnLike, btnReport;
+        TextView btnLike, btnReport, btnVersParcours;
 
         PhotoViewHolder(@NonNull View itemView) {
             super(itemView);
-            ivPhoto = itemView.findViewById(R.id.iv_photo);
-            tvTitle = itemView.findViewById(R.id.tv_title);
-            tvAuthor = itemView.findViewById(R.id.tv_author);
-            tvLocation = itemView.findViewById(R.id.tv_location);
-            tvDate = itemView.findViewById(R.id.tv_date);
-            tvLikes = itemView.findViewById(R.id.tv_likes);
-            btnLike = itemView.findViewById(R.id.btn_like);
-            btnReport = itemView.findViewById(R.id.btn_report);
+            ivPhoto         = itemView.findViewById(R.id.iv_photo);
+            tvTitle         = itemView.findViewById(R.id.tv_title);
+            tvAuthor        = itemView.findViewById(R.id.tv_author);
+            tvLocation      = itemView.findViewById(R.id.tv_location);
+            tvDate          = itemView.findViewById(R.id.tv_date);
+            tvLikes         = itemView.findViewById(R.id.tv_likes);
+            btnLike         = itemView.findViewById(R.id.btn_like);
+            btnReport       = itemView.findViewById(R.id.btn_report);
+            btnVersParcours = itemView.findViewById(R.id.btn_vers_parcours);
         }
     }
 }
