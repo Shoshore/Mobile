@@ -163,6 +163,15 @@
                 android:backgroundTint="#888888"
                 android:textColor="#FFFFFF"/>
 
+            <Button
+                android:id="@+id/btn_similar_photos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🔍 Photos similaires"
+                android:backgroundTint="#9C27B0"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="16dp"/>
+
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

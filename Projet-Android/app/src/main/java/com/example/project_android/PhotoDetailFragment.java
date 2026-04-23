@@ -74,7 +74,7 @@ public class PhotoDetailFragment extends Fragment {
         Button   btnItineraire = view.findViewById(R.id.btn_itineraire);
         Button   btnRetour     = view.findViewById(R.id.btn_detail_retour);
         Button   btnParcours   = view.findViewById(R.id.btn_detail_vers_parcours);
-
+        Button btnSimilaires = view.findViewById(R.id.btn_similar_photos);
         // Vues commentaires
         RecyclerView recyclerComments  = view.findViewById(R.id.recycler_comments);
         EditText etNewComment          = view.findViewById(R.id.et_new_comment);
@@ -160,6 +160,17 @@ public class PhotoDetailFragment extends Fragment {
                     .commit();
         });
 
+        btnSimilaires.setOnClickListener(v -> {
+            PhotoModel ref = new PhotoModel(
+                    title, author, location, date, imageRes, likes);
+            SimilarPhotosFragment similar =
+                    SimilarPhotosFragment.newInstance(ref);
+            requireActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, similar)
+                    .addToBackStack(null)
+                    .commit();
+        });
         return view;
     }
 }

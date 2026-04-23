@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     android:background="#F5F5F5">
 
+    <!-- Bannière hors-ligne -->
+    <TextView
+        android:id="@+id/tv_offline_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="📵 Mode hors-ligne — donnees en cache"
+        android:textColor="#FFFFFF"
+        android:background="#FF5722"
+        android:padding="8dp"
+        android:gravity="center"
+        android:textSize="12sp"
+        android:visibility="gone"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,7 +32,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Découverte du moment 🌍"
+        android:text="Decouverte du moment"
         android:textSize="14sp"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"

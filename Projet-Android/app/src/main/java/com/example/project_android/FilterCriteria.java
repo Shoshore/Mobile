@@ -6,6 +6,7 @@ public class FilterCriteria {
     public String periodeFin   = "";
     public String lieu         = "";
     public String typeLieu     = "";
+    public String photoReferenceTitle = "";
     public int    rayonKm      = 0;
 
     public boolean isEmpty() {

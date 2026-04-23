@@ -77,6 +77,13 @@ public class ProfileFragment extends Fragment {
                         .commit()
         );
 
+        view.findViewById(R.id.btn_cache).setOnClickListener(v ->
+                requireActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, new CacheSettingsFragment())
+                        .addToBackStack(null)
+                        .commit()
+        );
         return view;
     }
 

@@ -64,7 +64,9 @@ public class TravelPathResultFragment extends Fragment {
         recycler.setLayoutManager(new LinearLayoutManager(getContext()));
         recycler.setAdapter(new ParcoursAdapter(
                 generateParcours(ville, budget, duree, effort, null)));
-
+        // Sauvegarder en cache
+        CacheManager.getInstance(requireContext()).saveParcours(
+                generateParcours(ville, budget, duree, effort, null));
         // Retour
         view.findViewById(R.id.btn_retour).setOnClickListener(v ->
                 requireActivity().getSupportFragmentManager().popBackStack()
