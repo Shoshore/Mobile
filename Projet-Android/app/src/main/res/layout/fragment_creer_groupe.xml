@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="👥 Creer un groupe"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#1A1A2E"
+            android:paddingBottom="16dp"/>
+
+        <EditText
+            android:id="@+id/et_groupe_nom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nom du groupe"
+            android:padding="12dp"
+            android:background="#FFFFFF"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/et_groupe_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Description du groupe"
+            android:padding="12dp"
+            android:background="#FFFFFF"
+            android:minLines="3"
+            android:gravity="top"
+            android:layout_marginBottom="12dp"/>
+
+        <CheckBox
+            android:id="@+id/cb_groupe_public"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🌍 Groupe public (visible par tous)"
+            android:checked="true"
+            android:layout_marginBottom="24dp"/>
+
+        <Button
+            android:id="@+id/btn_creer_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="✅ Creer le groupe"
+            android:backgroundTint="#1A1A2E"
+            android:textColor="#FFFFFF"
+            android:padding="14dp"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/btn_creer_retour"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Retour"
+            android:backgroundTint="#888888"
+            android:textColor="#FFFFFF"/>
+    </LinearLayout>
+</ScrollView>

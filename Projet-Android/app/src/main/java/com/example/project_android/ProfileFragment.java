@@ -42,7 +42,6 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        // Publier une photo
         view.findViewById(R.id.btn_publish).setOnClickListener(v -> {
             if (activity.isLoggedIn()) {
                 requireActivity().getSupportFragmentManager()
@@ -56,17 +55,24 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        // Mes photos
         view.findViewById(R.id.btn_my_photos).setOnClickListener(v ->
                 Toast.makeText(getContext(),
                         "Mes photos - a implementer", Toast.LENGTH_SHORT).show()
         );
 
-        // Notifications → NotificationSettingsFragment
         view.findViewById(R.id.btn_notifications).setOnClickListener(v ->
                 requireActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.fragment_container, new NotificationSettingsFragment())
+                        .addToBackStack(null)
+                        .commit()
+        );
+
+        // Bouton groupes → GroupesFragment
+        view.findViewById(R.id.btn_groupes).setOnClickListener(v ->
+                requireActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, new GroupesFragment())
                         .addToBackStack(null)
                         .commit()
         );

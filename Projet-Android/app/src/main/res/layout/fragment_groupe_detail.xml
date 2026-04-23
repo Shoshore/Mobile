@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <!-- Header -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1A1A2E"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tv_gd_nom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:paddingBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/tv_gd_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:textColor="#CCCCCC"
+            android:paddingBottom="6dp"/>
+
+        <TextView
+            android:id="@+id/tv_gd_createur"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#AAAAAA"
+            android:paddingBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/tv_gd_stats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#AAAAAA"
+            android:paddingBottom="10dp"/>
+
+        <Button
+            android:id="@+id/btn_gd_publier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📸 Publier une photo dans ce groupe"
+            android:backgroundTint="#4CAF50"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"/>
+    </LinearLayout>
+
+    <!-- Membres -->
+    <TextView
+        android:id="@+id/tv_gd_membres"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="#888888"
+        android:padding="12dp"
+        android:background="#FFFFFF"/>
+
+    <!-- Photos -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="📸 Photos du groupe"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="#1A1A2E"
+        android:padding="12dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_gd_photos"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="4dp"/>
+
+    <Button
+        android:id="@+id/btn_gd_retour"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Retour"
+        android:backgroundTint="#888888"
+        android:textColor="#FFFFFF"
+        android:layout_margin="12dp"/>
+</LinearLayout>
