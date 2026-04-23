@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <!-- Budget -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="💰 Budget max"
+                android:textStyle="bold"
+                android:textColor="#1A1A2E"/>
+
+            <TextView
+                android:id="@+id/tv_regen_budget_val"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100 €"
+                android:textStyle="bold"
+                android:textColor="#4CAF50"/>
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/seek_regen_budget"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Durée -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="⏱️ Duree"
+                android:textStyle="bold"
+                android:textColor="#1A1A2E"/>
+
+            <TextView
+                android:id="@+id/tv_regen_duree_val"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5 h"
+                android:textStyle="bold"
+                android:textColor="#2196F3"/>
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/seek_regen_duree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Séparateur -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#EEEEEE"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Ajustements -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ajustements"
+            android:textStyle="bold"
+            android:textColor="#888888"
+            android:paddingBottom="8dp"/>
+
+        <CheckBox
+            android:id="@+id/cb_plus_musees"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🏛️ Privilegier les musees et culture"
+            android:layout_marginBottom="6dp"/>
+
+        <CheckBox
+            android:id="@+id/cb_plus_restos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🍽️ Inclure plus de restaurants"
+            android:layout_marginBottom="6dp"/>
+
+        <CheckBox
+            android:id="@+id/cb_moins_marche"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🚌 Reduire la marche a pied"
+            android:layout_marginBottom="6dp"/>
+
+        <CheckBox
+            android:id="@+id/cb_eviter_foule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🧘 Eviter les lieux tres frequentes"/>
+
+    </LinearLayout>
+</ScrollView>

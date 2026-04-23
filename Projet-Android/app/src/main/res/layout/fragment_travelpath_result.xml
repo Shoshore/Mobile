@@ -6,58 +6,98 @@
     android:layout_height="match_parent"
     android:background="#F5F5F5">
 
-    <TextView
-        android:id="@+id/tv_result_title"
+    <!-- Header -->
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Parcours generés"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="#1A1A2E"
-        android:padding="16dp"
-        android:background="#FFFFFF"/>
+        android:background="#1A1A2E"
+        android:padding="12dp">
 
+        <TextView
+            android:id="@+id/tv_result_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Parcours generes"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:paddingBottom="10dp"/>
+
+        <!-- Boutons ligne 1 -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp">
+
+            <Button
+                android:id="@+id/btn_voir_carte"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="🗺️ Carte"
+                android:backgroundTint="#2196F3"
+                android:textColor="#FFFFFF"
+                android:textSize="11sp"
+                android:layout_marginEnd="4dp"/>
+
+            <Button
+                android:id="@+id/btn_meteo_result"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="🌤️ Meteo"
+                android:backgroundTint="#4CAF50"
+                android:textColor="#FFFFFF"
+                android:textSize="11sp"
+                android:layout_marginEnd="4dp"/>
+
+            <Button
+                android:id="@+id/btn_voir_photos"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="📸 Photos"
+                android:backgroundTint="#9C27B0"
+                android:textColor="#FFFFFF"
+                android:textSize="11sp"/>
+        </LinearLayout>
+
+        <!-- Boutons ligne 2 -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btn_regenerer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="🔄 Regenerer"
+                android:backgroundTint="#FF9800"
+                android:textColor="#FFFFFF"
+                android:textSize="11sp"
+                android:layout_marginEnd="4dp"/>
+
+            <Button
+                android:id="@+id/btn_retour"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="← Retour"
+                android:backgroundTint="#555555"
+                android:textColor="#FFFFFF"
+                android:textSize="11sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Liste parcours -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_parcours"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="match_parent"
         android:padding="8dp"/>
-
-    <Button
-        android:id="@+id/btn_retour"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Modifier les criteres"
-        android:backgroundTint="#555555"
-        android:textColor="#FFFFFF"
-        android:layout_margin="12dp"/>
-
-    <Button
-        android:id="@+id/btn_meteo_result"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="🌤️ Meteo de cette ville"
-        android:backgroundTint="#2196F3"
-        android:textColor="#FFFFFF"
-        android:layout_margin="12dp"/>
-
-    <Button
-        android:id="@+id/btn_voir_photos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="📸 Voir les photos de cette ville"
-        android:backgroundTint="#4CAF50"
-        android:textColor="#FFFFFF"
-        android:layout_margin="12dp"/>
-
-    <Button
-        android:id="@+id/btn_voir_carte"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="🗺️ Voir le parcours sur la carte"
-        android:backgroundTint="#2196F3"
-        android:textColor="#FFFFFF"
-        android:layout_margin="12dp"/>
 
 </LinearLayout>
