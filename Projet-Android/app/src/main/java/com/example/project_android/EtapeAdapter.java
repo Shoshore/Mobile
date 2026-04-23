@@ -3,6 +3,7 @@ package com.example.project_android;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -36,23 +37,30 @@ public class EtapeAdapter extends RecyclerView.Adapter<EtapeAdapter.EtapeViewHol
         holder.tvDuree.setText("⏱ " + etape.getDuree());
         holder.tvDistance.setText("📏 " + etape.getDistance());
 
-        // Galerie photos horizontale
+        // Galerie photos
         EtapePhotoAdapter photoAdapter = new EtapePhotoAdapter(etape.getPhotos());
         holder.recyclerPhotos.setLayoutManager(
                 new LinearLayoutManager(holder.itemView.getContext(),
                         LinearLayoutManager.HORIZONTAL, false));
         holder.recyclerPhotos.setAdapter(photoAdapter);
 
-        // Déplier/replier galerie
+        // Bouton carte étape
+        holder.btnCarteEtape.setOnClickListener(v -> {
+            EtapeMapFragment mapFrag = EtapeMapFragment.newInstance(etape);
+            ((androidx.fragment.app.FragmentActivity) v.getContext())
+                    .getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, mapFrag)
+                    .addToBackStack(null)
+                    .commit();
+        });
+
+        // Déplier/replier
         holder.tvTitre.setOnClickListener(v -> {
             if (holder.layoutDetails.getVisibility() == View.VISIBLE) {
                 holder.layoutDetails.setVisibility(View.GONE);
-                holder.tvTitre.setCompoundDrawablesWithIntrinsicBounds(
-                        0, 0, android.R.drawable.arrow_down_float, 0);
             } else {
                 holder.layoutDetails.setVisibility(View.VISIBLE);
-                holder.tvTitre.setCompoundDrawablesWithIntrinsicBounds(
-                        0, 0, android.R.drawable.arrow_up_float, 0);
             }
         });
     }
@@ -64,6 +72,7 @@ public class EtapeAdapter extends RecyclerView.Adapter<EtapeAdapter.EtapeViewHol
         TextView tvNumero, tvTitre, tvHoraire, tvDescription, tvDuree, tvDistance;
         RecyclerView recyclerPhotos;
         View layoutDetails;
+        Button btnCarteEtape;
 
         EtapeViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -75,6 +84,7 @@ public class EtapeAdapter extends RecyclerView.Adapter<EtapeAdapter.EtapeViewHol
             tvDistance     = itemView.findViewById(R.id.tv_etape_distance);
             recyclerPhotos = itemView.findViewById(R.id.recycler_etape_photos);
             layoutDetails  = itemView.findViewById(R.id.layout_etape_details);
+            btnCarteEtape  = itemView.findViewById(R.id.btn_etape_carte);
         }
     }
 }

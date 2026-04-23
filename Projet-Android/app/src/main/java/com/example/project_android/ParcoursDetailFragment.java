@@ -42,7 +42,7 @@ public class ParcoursDetailFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_parcours_detail, container, false);
 
-        Bundle args  = getArguments();
+        Bundle args   = getArguments();
         String titre  = args != null ? args.getString(ARG_TITRE, "") : "";
         String ville  = args != null ? args.getString(ARG_VILLE, "") : "";
         int budget    = args != null ? args.getInt(ARG_BUDGET, 0) : 0;
@@ -51,9 +51,9 @@ public class ParcoursDetailFragment extends Fragment {
 
         TextView tvTitre  = view.findViewById(R.id.tv_detail_parcours_titre);
         TextView tvMeta   = view.findViewById(R.id.tv_detail_parcours_meta);
-        Button   btnRetour = view.findViewById(R.id.btn_parcours_detail_retour);
-        Button   btnCarte  = view.findViewById(R.id.btn_parcours_detail_carte);
-        Button   btnMeteo  = view.findViewById(R.id.btn_parcours_detail_meteo);
+        Button btnRetour  = view.findViewById(R.id.btn_parcours_detail_retour);
+        Button btnCarte   = view.findViewById(R.id.btn_parcours_detail_carte);
+        Button btnMeteo   = view.findViewById(R.id.btn_parcours_detail_meteo);
 
         tvTitre.setText(titre);
         tvMeta.setText("📍 " + ville
@@ -61,17 +61,14 @@ public class ParcoursDetailFragment extends Fragment {
                 + "   ⏱ " + duree + "h"
                 + "   💪 " + effort);
 
-        // Charger les étapes avec galerie
-        List<EtapeModel> etapes = buildEtapes(ville);
         RecyclerView recycler = view.findViewById(R.id.recycler_etapes_detail);
         recycler.setLayoutManager(new LinearLayoutManager(getContext()));
-        recycler.setAdapter(new EtapeAdapter(etapes));
+        recycler.setAdapter(new EtapeAdapter(buildEtapes(ville)));
 
         btnRetour.setOnClickListener(v ->
                 requireActivity().getSupportFragmentManager().popBackStack()
         );
 
-        // Bouton carte
         btnCarte.setOnClickListener(v -> {
             TravelPathMapFragment mapFrag =
                     TravelPathMapFragment.newInstance(ville, titre);
@@ -82,7 +79,6 @@ public class ParcoursDetailFragment extends Fragment {
                     .commit();
         });
 
-        // Bouton météo
         btnMeteo.setOnClickListener(v -> {
             WeatherFragment weatherFrag = new WeatherFragment();
             Bundle bundle = new Bundle();
@@ -94,52 +90,88 @@ public class ParcoursDetailFragment extends Fragment {
                     .addToBackStack(null)
                     .commit();
         });
-        // Bouton lieux
-        Button btnLieux = view.findViewById(R.id.btn_parcours_voir_lieux);
-        btnLieux.setOnClickListener(v -> {
-            LieuxFragment lieuxFrag = LieuxFragment.newInstance(ville);
-            requireActivity().getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragment_container, lieuxFrag)
-                    .addToBackStack(null)
-                    .commit();
-        });
+
         return view;
     }
 
     private List<EtapeModel> buildEtapes(String ville) {
-        List<Integer> photosSample = Arrays.asList(
+        List<Integer> photos = Arrays.asList(
                 android.R.drawable.ic_menu_gallery,
                 android.R.drawable.ic_menu_camera,
                 android.R.drawable.ic_menu_gallery
         );
 
+        // Coordonnées selon la ville
+        double[][] coords = getCoordsForVille(ville);
+
         List<EtapeModel> list = new ArrayList<>();
         list.add(new EtapeModel(
                 "Centre historique de " + ville,
                 "9h00 - 10h30",
-                "Decouvrez le coeur historique de la ville avec ses monuments emblematiques.",
-                "1h30", "Depart", photosSample));
+                "Decouvrez le coeur historique de la ville.",
+                "1h30", "Depart", photos,
+                coords[0][0], coords[0][1]));
         list.add(new EtapeModel(
                 "Musee principal",
                 "11h00 - 12h30",
-                "Visitez le musee incontournable de la ville, riche en histoire et culture.",
-                "1h30", "500m", photosSample));
+                "Visitez le musee incontournable.",
+                "1h30", "500m", photos,
+                coords[1][0], coords[1][1]));
         list.add(new EtapeModel(
                 "Dejeuner local",
                 "12h30 - 14h00",
-                "Pause dejeuner dans un restaurant typique de la region.",
-                "1h30", "200m", photosSample));
+                "Pause dejeuner dans un restaurant typique.",
+                "1h30", "200m", photos,
+                coords[2][0], coords[2][1]));
         list.add(new EtapeModel(
                 "Parc et jardins",
                 "14h00 - 15h30",
-                "Promenade dans les parcs et jardins de la ville.",
-                "1h30", "300m", photosSample));
+                "Promenade dans les parcs de la ville.",
+                "1h30", "300m", photos,
+                coords[3][0], coords[3][1]));
         list.add(new EtapeModel(
                 "Quartier artistique",
                 "16h00 - 17h30",
-                "Explorez les galeries et rues artistiques du quartier.",
-                "1h30", "400m", photosSample));
+                "Explorez les galeries et rues artistiques.",
+                "1h30", "400m", photos,
+                coords[4][0], coords[4][1]));
         return list;
+    }
+
+    private double[][] getCoordsForVille(String ville) {
+        switch (ville.toLowerCase()) {
+            case "paris":
+                return new double[][]{
+                        {48.8534, 2.3488},  // Hotel de Ville
+                        {48.8606, 2.3376},  // Louvre
+                        {48.8559, 2.3516},  // Marais
+                        {48.8462, 2.3372},  // Jardin du Luxembourg
+                        {48.8867, 2.3431}   // Montmartre
+                };
+            case "tokyo":
+                return new double[][]{
+                        {35.6762, 139.6503}, // Shinjuku
+                        {35.7148, 139.7967}, // Senso-ji
+                        {35.6654, 139.7707}, // Tsukiji
+                        {35.6586, 139.7454}, // Tokyo Tower
+                        {35.7023, 139.7759}  // Ueno
+                };
+            case "rome":
+                return new double[][]{
+                        {41.8902, 12.4922},  // Colisee
+                        {41.9022, 12.4539},  // Vatican
+                        {41.8986, 12.4768},  // Forum
+                        {41.9009, 12.4833},  // Trevi
+                        {41.9054, 12.4822}   // Piazza Navona
+                };
+            default:
+                return new double[][]{
+                        {48.8566, 2.3522},
+                        {48.8606, 2.3376},
+                        {48.8559, 2.3516},
+                        {48.8462, 2.3372},
+                        {48.8867, 2.3431}
+                };
+        }
     }
 }
