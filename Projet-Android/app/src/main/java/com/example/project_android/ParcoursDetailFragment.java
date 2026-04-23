@@ -94,7 +94,16 @@ public class ParcoursDetailFragment extends Fragment {
                     .addToBackStack(null)
                     .commit();
         });
-
+        // Bouton lieux
+        Button btnLieux = view.findViewById(R.id.btn_parcours_voir_lieux);
+        btnLieux.setOnClickListener(v -> {
+            LieuxFragment lieuxFrag = LieuxFragment.newInstance(ville);
+            requireActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, lieuxFrag)
+                    .addToBackStack(null)
+                    .commit();
+        });
         return view;
     }
 
