@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Titre -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🔎 Filtres avances"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#1A1A2E"
+            android:paddingBottom="16dp"/>
+
+        <!-- Auteur -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="👤 Auteur"
+            android:textStyle="bold"
+            android:paddingBottom="4dp"/>
+        <EditText
+            android:id="@+id/et_filter_auteur"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nom du photographe"
+            android:padding="12dp"
+            android:background="#FFFFFF"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Periode -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🗓 Periode"
+            android:textStyle="bold"
+            android:paddingBottom="4dp"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <EditText
+                android:id="@+id/et_filter_periode_debut"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="De (ex: 2023)"
+                android:inputType="number"
+                android:padding="12dp"
+                android:background="#FFFFFF"
+                android:layout_marginEnd="8dp"/>
+
+            <EditText
+                android:id="@+id/et_filter_periode_fin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="A (ex: 2024)"
+                android:inputType="number"
+                android:padding="12dp"
+                android:background="#FFFFFF"/>
+        </LinearLayout>
+
+        <!-- Lieu -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📍 Autour d'un lieu"
+            android:textStyle="bold"
+            android:paddingBottom="4dp"/>
+        <EditText
+            android:id="@+id/et_filter_lieu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ex: Paris, Tokyo..."
+            android:padding="12dp"
+            android:background="#FFFFFF"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- Rayon -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Rayon de recherche"
+                android:textColor="#555555"/>
+            <TextView
+                android:id="@+id/tv_rayon_val"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10 km"
+                android:textStyle="bold"
+                android:textColor="#1A1A2E"/>
+        </LinearLayout>
+        <SeekBar
+            android:id="@+id/seek_rayon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Type de lieu -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🏷 Type de lieu"
+            android:textStyle="bold"
+            android:paddingBottom="8dp"/>
+
+        <RadioGroup
+            android:id="@+id/rg_type_lieu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/rb_nature"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="🌿 Nature"/>
+
+                <RadioButton
+                    android:id="@+id/rb_musee"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="🏛 Musee"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/rb_rue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="🏙 Rue"/>
+
+                <RadioButton
+                    android:id="@+id/rb_restaurant"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="🍽 Restaurant"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/rb_monument"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="🏰 Monument"/>
+
+                <RadioButton
+                    android:id="@+id/rb_plage"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="🏖 Plage"/>
+            </LinearLayout>
+        </RadioGroup>
+
+        <!-- Boutons -->
+        <Button
+            android:id="@+id/btn_appliquer_filtres"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="✅ Appliquer les filtres"
+            android:backgroundTint="#1A1A2E"
+            android:textColor="#FFFFFF"
+            android:padding="14dp"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/btn_reset_filtres"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🔄 Reinitialiser"
+            android:backgroundTint="#FF9800"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/btn_filter_retour"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Retour"
+            android:backgroundTint="#888888"
+            android:textColor="#FFFFFF"/>
+
+    </LinearLayout>
+</ScrollView>

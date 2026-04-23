@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Photo -->
+        <ImageView
+            android:id="@+id/iv_detail_photo"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:scaleType="centerCrop"
+            android:src="@android:drawable/ic_menu_gallery"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Infos -->
+            <TextView
+                android:id="@+id/tv_detail_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#1A1A2E"
+                android:paddingBottom="6dp"/>
+
+            <TextView
+                android:id="@+id/tv_detail_author"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="#888888"
+                android:paddingBottom="4dp"/>
+
+            <TextView
+                android:id="@+id/tv_detail_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="#555555"
+                android:paddingBottom="4dp"/>
+
+            <TextView
+                android:id="@+id/tv_detail_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="#AAAAAA"
+                android:paddingBottom="4dp"/>
+
+            <TextView
+                android:id="@+id/tv_detail_likes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="#E91E63"
+                android:paddingBottom="16dp"/>
+
+            <!-- Boutons actions -->
+            <Button
+                android:id="@+id/btn_itineraire"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🧭 Itineraire Google Maps"
+                android:backgroundTint="#4285F4"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="8dp"/>
+
+            <Button
+                android:id="@+id/btn_detail_vers_parcours"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🗺️ Creer un parcours ici"
+                android:backgroundTint="#1A1A2E"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Separateur -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DDDDDD"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Section commentaires -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="💬 Commentaires"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#1A1A2E"
+                android:paddingBottom="10dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_comments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"/>
+
+            <!-- Champ nouveau commentaire (visible si connecte) -->
+            <LinearLayout
+                android:id="@+id/layout_comment_input"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/et_new_comment"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Ajouter un commentaire..."
+                    android:padding="10dp"
+                    android:background="#FFFFFF"
+                    android:layout_marginEnd="8dp"/>
+
+                <Button
+                    android:id="@+id/btn_send_comment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Envoyer"
+                    android:backgroundTint="#1A1A2E"
+                    android:textColor="#FFFFFF"/>
+            </LinearLayout>
+
+            <!-- Message si non connecte -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Connectez-vous pour commenter"
+                android:textColor="#AAAAAA"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:paddingTop="8dp"/>
+
+            <!-- Separateur -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DDDDDD"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Bouton retour -->
+            <Button
+                android:id="@+id/btn_detail_retour"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Retour"
+                android:backgroundTint="#888888"
+                android:textColor="#FFFFFF"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

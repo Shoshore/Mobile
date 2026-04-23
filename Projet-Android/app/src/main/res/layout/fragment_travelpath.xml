@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Titre -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🗺️ Créer un parcours"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#1A1A2E"
+            android:paddingBottom="16dp"/>
+
+        <!-- Ville -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📍 Ville de destination"
+            android:textStyle="bold"
+            android:paddingBottom="4dp"/>
+        <EditText
+            android:id="@+id/et_ville"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ex : Paris, Tokyo, Rome..."
+            android:padding="12dp"
+            android:background="#FFFFFF"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Activités -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🎯 Activités souhaitées"
+            android:textStyle="bold"
+            android:paddingBottom="8dp"/>
+        <CheckBox android:id="@+id/cb_restaurant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🍽️ Restauration"/>
+        <CheckBox android:id="@+id/cb_culture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🏛️ Culture &amp; musées"/>
+        <CheckBox android:id="@+id/cb_loisirs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🎡 Loisirs"/>
+        <CheckBox android:id="@+id/cb_decouverte"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🔭 Découverte"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Budget -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="💰 Budget max"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/tv_budget_val"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100 €"
+                android:textColor="#1A1A2E"
+                android:textStyle="bold"/>
+        </LinearLayout>
+        <SeekBar
+            android:id="@+id/seek_budget"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Durée -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="⏱️ Durée disponible"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/tv_duree_val"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5 h"
+                android:textColor="#1A1A2E"
+                android:textStyle="bold"/>
+        </LinearLayout>
+        <SeekBar
+            android:id="@+id/seek_duree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Contraintes -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="⚙️ Contraintes"
+            android:textStyle="bold"
+            android:paddingBottom="8dp"/>
+        <CheckBox android:id="@+id/cb_effort_faible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🦽 Effort réduit (PMR, personnes âgées, enfants)"/>
+        <CheckBox android:id="@+id/cb_froid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🥶 Sensible au froid"/>
+        <CheckBox android:id="@+id/cb_chaleur"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🥵 Sensible à la chaleur"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Bouton -->
+        <Button
+            android:id="@+id/btn_voir_meteo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🌤️ Voir la meteo"
+            android:backgroundTint="#2196F3"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/btn_generer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🗺️ Générer mes parcours"
+            android:backgroundTint="#1A1A2E"
+            android:textColor="#FFFFFF"
+            android:padding="14dp"/>
+    </LinearLayout>
+</ScrollView>

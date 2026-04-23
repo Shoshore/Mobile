@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="14dp">
+
+        <TextView
+            android:id="@+id/tv_parcours_titre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#1A1A2E"
+            android:paddingBottom="6dp"/>
+
+        <TextView
+            android:id="@+id/tv_parcours_meta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:textColor="#666666"
+            android:paddingBottom="10dp"/>
+
+        <LinearLayout
+            android:id="@+id/layout_etapes"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="8dp"
+            android:paddingBottom="10dp"
+            android:visibility="visible"/>
+
+        <!-- Ligne 1 actions : like / save / share -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/btn_parcours_like"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="🤍 J'aime"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:padding="8dp"
+                android:background="#F0F0F0"/>
+
+            <TextView
+                android:id="@+id/btn_parcours_save"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="💾 Sauvegarder"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:padding="8dp"
+                android:background="#E3F2FD"
+                android:layout_marginStart="4dp"/>
+
+            <TextView
+                android:id="@+id/btn_parcours_share"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="📤 Partager"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:padding="8dp"
+                android:background="#F3E5F5"
+                android:layout_marginStart="4dp"/>
+        </LinearLayout>
+
+        <!-- Ligne 2 actions : PDF / photos / détail -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp">
+
+            <TextView
+                android:id="@+id/btn_parcours_pdf"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="📄 PDF"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:padding="8dp"
+                android:background="#FFF3E0"/>
+
+            <TextView
+                android:id="@+id/btn_vers_photos"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="📸 Photos"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:padding="8dp"
+                android:background="#E8F5E9"
+                android:layout_marginStart="4dp"/>
+
+            <TextView
+                android:id="@+id/btn_parcours_detail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="📋 Détail"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:padding="8dp"
+                android:background="#E8EAF6"
+                android:layout_marginStart="4dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
