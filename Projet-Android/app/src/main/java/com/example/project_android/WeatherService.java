@@ -12,7 +12,7 @@ import java.util.concurrent.Executors;
 
 public class WeatherService {
 
-    private static final String API_KEY  = "55bd1132f1c7cb94013bea9670e8fba4";
+    private static final String API_KEY = BuildConfig.API_KEY_WEATHER;
     private static final String BASE_URL =
             "https://api.openweathermap.org/data/2.5/weather";
 
