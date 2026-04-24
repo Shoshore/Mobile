@@ -55,10 +55,19 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        view.findViewById(R.id.btn_my_photos).setOnClickListener(v ->
+        view.findViewById(R.id.btn_my_photos).setOnClickListener(v -> {
+            if (activity.isLoggedIn()) {
+                requireActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, new MyPhotosFragment())
+                        .addToBackStack(null)
+                        .commit();
+            } else {
                 Toast.makeText(getContext(),
-                        "Mes photos - a implementer", Toast.LENGTH_SHORT).show()
-        );
+                        "Connectez-vous pour voir vos photos",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
 
         view.findViewById(R.id.btn_notifications).setOnClickListener(v ->
                 requireActivity().getSupportFragmentManager()

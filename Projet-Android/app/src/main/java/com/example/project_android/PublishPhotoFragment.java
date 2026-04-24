@@ -98,11 +98,26 @@ public class PublishPhotoFragment extends Fragment {
             }
             if (selectedImageUri == null) {
                 Toast.makeText(getContext(),
-                        "Veuillez choisir ou prendre une photo", Toast.LENGTH_SHORT).show();
+                        "Veuillez choisir ou prendre une photo",
+                        Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            // Simuler la publication
+            // Sauvegarder dans le profil utilisateur
+            MainActivity activity = (MainActivity) requireActivity();
+            if (activity.isLoggedIn()) {
+                PhotoModel newPhoto = new PhotoModel(
+                        title,
+                        activity.getLoggedUserName(),
+                        location,
+                        new java.text.SimpleDateFormat("MMM yyyy",
+                                java.util.Locale.FRANCE).format(new java.util.Date()),
+                        android.R.drawable.ic_menu_gallery,
+                        0);
+                UserRepository.getInstance()
+                        .addPhotoForUser(activity.getLoggedUserName(), newPhoto);
+            }
+
             Toast.makeText(getContext(),
                     "Photo \"" + title + "\" publiee !", Toast.LENGTH_SHORT).show();
 
