@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.content.Intent;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,6 +15,21 @@ import java.io.IOException;
 import java.util.List;
 
 public class ParcoursAdapter extends RecyclerView.Adapter<ParcoursAdapter.ParcourViewHolder> {
+
+    private String buildShareText(ParcourModel p) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("✈️ Traveling — Mon parcours a ").append(p.getVille()).append("\n\n");
+        sb.append(p.getTitre()).append("\n");
+        sb.append("💰 Budget : ").append(p.getBudget()).append("€\n");
+        sb.append("⏱ Duree : ").append(p.getDuree()).append("h\n");
+        sb.append("💪 Effort : ").append(p.getEffort()).append("\n\n");
+        sb.append("📍 Etapes :\n");
+        for (String etape : p.getEtapes()) {
+            sb.append("  • ").append(etape).append("\n");
+        }
+        sb.append("\nPartage depuis l'app Traveling");
+        return sb.toString();
+    }
 
     private List<ParcourModel> parcoursList;
 
@@ -59,10 +75,16 @@ public class ParcoursAdapter extends RecyclerView.Adapter<ParcoursAdapter.Parcou
                 Toast.makeText(v.getContext(), "Parcours sauvegarde", Toast.LENGTH_SHORT).show()
         );
 
-        // Partager
-        holder.btnShare.setOnClickListener(v ->
-                Toast.makeText(v.getContext(), "Partage - a implementer", Toast.LENGTH_SHORT).show()
-        );
+        // Partager via Intent Android
+        holder.btnShare.setOnClickListener(v -> {
+            String contenu = buildShareText(p);
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Mon parcours a " + p.getVille());
+            intent.putExtra(Intent.EXTRA_TEXT, contenu);
+            v.getContext().startActivity(
+                    Intent.createChooser(intent, "Partager via..."));
+        });
 
         // Export PDF
         holder.btnPdf.setOnClickListener(v -> {

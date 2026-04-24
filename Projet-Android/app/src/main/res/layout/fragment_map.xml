@@ -5,12 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- Header avec filtre -->
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#1A1A2E"
-        android:padding="12dp">
+        android:padding="10dp"
+        android:gravity="center_vertical">
 
         <TextView
             android:layout_width="0dp"
@@ -20,8 +22,62 @@
             android:textColor="#FFFFFF"
             android:textSize="16sp"
             android:textStyle="bold"/>
+
+        <!-- Spinner filtre type de lieu -->
+        <Spinner
+            android:id="@+id/spinner_map_filter"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"/>
     </LinearLayout>
 
+    <!-- Légende couleurs -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2A2A3E">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="6dp">
+
+            <TextView android:text="🟢 Nature"
+                android:textColor="#FFFFFF" android:textSize="11sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"/>
+            <TextView android:text="🟠 Monument"
+                android:textColor="#FFFFFF" android:textSize="11sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"/>
+            <TextView android:text="🟣 Musee"
+                android:textColor="#FFFFFF" android:textSize="11sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"/>
+            <TextView android:text="🟡 Restaurant"
+                android:textColor="#FFFFFF" android:textSize="11sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"/>
+            <TextView android:text="🔵 Plage"
+                android:textColor="#FFFFFF" android:textSize="11sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"/>
+            <TextView android:text="🩷 Rue"
+                android:textColor="#FFFFFF" android:textSize="11sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Carte -->
     <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
